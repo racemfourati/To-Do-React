@@ -1,14 +1,23 @@
-
-
-.center{
+.center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-self: center;
 }
-.item{
+.item {
   display: flex;
-  align-items: center;
-  justify-self: center;
+  align-items: baseline;
+  gap: 10px;
 }
 
+.close-icon {
+  cursor: pointer;
+}
+
+.checkbox:checked + h3 {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  accent-color: black;
+}

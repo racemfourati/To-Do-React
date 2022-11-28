@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
+import React, {  } from "react";
 import ToDoItem from "./ToDoItem";
 
-const Feed = ({ items }) => {
-  useEffect(()=>{
-    console.log('feed',items)
-  })
-    
+const Feed = ({ items, deleteToDo }) => {
   return (
     <div className="items center">
-      {items.map((item) => {
-        return <ToDoItem item={item} />;
+      {items.map((item, index) => {
+        return <ToDoItem key={index} deleteToDo={deleteToDo} item={item} />;
       })}
     </div>
   );
