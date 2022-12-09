@@ -1,31 +1,12 @@
-import { useState } from "react";
+import {  useContext } from "react";
 import "./App.css";
 import AddItem from "./components/AddItem";
 import Feed from "./components/Feed";
+import TodosContext from "./context/todos";
 
 function App() {
-  const [todos, settodos] = useState([]);
-  const [lastId, setLastId] = useState(0);
+  const { todos, addToDo, deleteToDo } = useContext(TodosContext);
 
-  //function to add a new todo
-  const addToDo = (todo) => {
-    if (todo) {
-      let oldTodos = [...todos];
-      oldTodos.push({ id: lastId, todo: todo, done: false });
-      setLastId(lastId + 1);
-      settodos(oldTodos);
-    }
-  };
-  const deleteToDo = (id) => {
-    let stateCopy = [...todos];
-    stateCopy.forEach((el, index) => {
-      if (el.id === Number(id)) {
-        stateCopy.splice(index, 1);
-        settodos(stateCopy);
-      }
-      return "nothing";
-    });
-  };
   return (
     <div className="App center">
       <h1>My Todo List</h1>
