@@ -1,7 +1,10 @@
-import React, {  } from "react";
+import React, { useContext } from "react";
 import close from "../assets/close.svg";
+import TodosContext from "../context/todos";
 
-const ToDoItem = ({ item, deleteToDo }) => {
+const ToDoItem = ({ item,}) => {
+  const { deleteToDo } = useContext(TodosContext);
+
 
   
   return (

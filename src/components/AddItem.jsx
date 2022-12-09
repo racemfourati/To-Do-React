@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState ,useContext } from "react";
+import TodosContext from "../context/todos";
 
-const AddItem = ({ addTodo }) => {
+const AddItem = () => {
   const [text, setText] = useState("");
+  const { addToDo } = useContext(TodosContext);
+
 
   const onSubmit = () => {
     if (text && text !== "") {
-      addTodo(text);
+      addToDo(text);
       setText('')
     }
   };
