@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import close from "../assets/close.svg";
+import editIcon from "../assets/edit-icon.svg"
 import TodosContext from "../context/todos";
 
 const ToDoItem = ({ item,}) => {
-  const { deleteToDo } = useContext(TodosContext);
+  const { deleteToDo,editToDo } = useContext(TodosContext);
 
 
   
@@ -11,6 +12,18 @@ const ToDoItem = ({ item,}) => {
     <div className="item" id={item.id}>
       <input  className='checkbox' type="checkbox" id={item.id} name={item.todo} value={item.todo} />
       <h3>{item.todo}</h3>
+      <img
+      alt="edit-icon"
+        className="edit-icon"
+        onClick={(e) => {
+         let newTodo= prompt("You want to edit your todo ?", item.todo);
+         if(newTodo){
+          editToDo(e.target.id,newTodo)
+         }
+        }}
+        id={item.id}
+        src={editIcon}
+      />
       <img
       alt="close-icon"
         className="close-icon"

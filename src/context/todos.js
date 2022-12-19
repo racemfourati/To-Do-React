@@ -25,11 +25,22 @@ const Provider = ({ children }) => {
       return "nothing";
     });
   };
+  const editToDo = (id,value) => {
+    let stateCopy = [...todos];
+    stateCopy.filter((el) => {
+      if (el.id === Number(id)) {
+        el.todo=value
+        settodos(stateCopy);
+      }
+      return "nothing";
+    });
+  };
 
   const share = {
     todos,
     addToDo,
     deleteToDo,
+    editToDo
   };
 
   return (

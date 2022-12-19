@@ -10,7 +10,8 @@
   gap: 10px;
 }
 
-.close-icon {
+
+.edit-icon,.close-icon {
   cursor: pointer;
 }
 
